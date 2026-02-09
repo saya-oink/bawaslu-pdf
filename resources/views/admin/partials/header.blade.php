@@ -31,7 +31,7 @@
             <li>
                 <a class="dropdown-item d-flex align-items-center gap-2"
                    href="{{ route('admin.users.edit', auth()->id()) }}">
-                    <i class="fa-solid fa-user text-info"></i> Profil
+                    <i class="fa-solid fa-user text-maroon"></i> Profil
                 </a>
             </li>
 
@@ -48,55 +48,63 @@
         </ul>
     </div>
 </header>
+
 <style>
-    .admin-header {
+.admin-header {
     position: sticky;
     top: 0;
     z-index: 999;
 
     background: linear-gradient(
         135deg,
-        rgba(15,32,39,.9),
-        rgba(32,58,67,.9),
-        rgba(44,83,100,.9)
+        rgba(237,28,36,.9),
+        rgba(122,28,31,.9)
     );
 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
     box-shadow:
-        0 10px 40px rgba(0,0,0,.4),
+        0 10px 40px rgba(0,0,0,.3),
         inset 0 -1px 0 rgba(255,255,255,.08);
 }
 
 /* ICON & TITLE */
 .header-icon {
-    color: #38bdf8;
+    color: #ED1C24;
     font-size: 1.25rem;
 }
 
 .header-title {
-    color: #fff;
+    color: #FFF1C1;
 }
 
 .header-user-name {
-    color: #e5e7eb;
+    color: #FFF1C1;
 }
 
 /* AVATAR */
 .user-avatar {
-    border: 2px solid rgba(56,189,248,.5);
+    border: 2px solid rgba(237,28,36,.5);
 }
 
 .user-avatar-fallback {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg,#38bdf8,#0ea5e9);
-    color: #fff;
+    background: linear-gradient(135deg,#ED1C24,#7A1C1F);
+    color: #FFF1C1;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
 }
 
+/* DROPDOWN ICON */
+.text-maroon {
+    color: #7A1C1F !important;
+}
+
+.fa-solid {
+    color: #fff2c5;
+}
 </style>

@@ -1,17 +1,21 @@
 <nav class="navbar navbar-expand-lg navbar-glass fixed-top">
     <div class="container">
-
+        
+        {{-- Logo Bawaslu (Pojok Kanan Atas) --}}
+        <div class="ms-auto">
+            <a href="{{ route('user.dashboard') }}">
+                <img src="{{ asset('images/logo-bawaslu.png') }}" alt="Bawaslu Logo" class="navbar-logo">
+            </a>
+        </div>
         {{-- Brand --}}
-        <a class="navbar-brand fw-bold"
-           href="{{ route('user.dashboard') }}">
+        <a class="navbar-brand fw-bold" href="{{ route('user.dashboard') }}">
             <span class="brand-gradient">Bawaslu</span>
             <span class="brand-sub">Sumenep</span>
         </a>
 
         {{-- Toggler --}}
         <button class="navbar-toggler border-0" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#userMenu">
+                data-bs-toggle="collapse" data-bs-target="#userMenu">
             <i class="fa-solid fa-bars text-primary fs-4"></i>
         </button>
 
@@ -23,8 +27,7 @@
                 <li class="nav-item">
                     <a href="{{ route('user.pdf.locker') }}"
                        class="nav-link premium-link {{ Route::is('user.pdf.locker*') ? 'active' : '' }}">
-                        <i class="fa-solid fa-file-shield me-1"></i>
-                        PDF Locker
+                        <i class="fa-solid fa-file-shield me-1"></i> PDF Locker
                     </a>
                 </li>
 
@@ -32,8 +35,15 @@
                 <li class="nav-item">
                     <a href="{{ route('user.profile.index') }}"
                        class="nav-link premium-link {{ Route::is('user.profile.index') ? 'active' : '' }}">
-                        <i class="fa-solid fa-building-columns me-1"></i>
-                        Profil
+                        <i class="fa-solid fa-building-columns me-1"></i> Profil
+                    </a>
+                </li>
+
+                {{-- Dokumen Arsip --}}
+                <li class="nav-item">
+                    <a href="{{ route('user.archives.index') }}"
+                       class="nav-link premium-link {{ Route::is('user.archives.index') ? 'active' : '' }}">
+                        <i class="fa-solid fa-folder-open me-1"></i> Dokumen Arsip
                     </a>
                 </li>
 
@@ -45,39 +55,28 @@
                 {{-- User Dropdown --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link d-flex align-items-center gap-2 dropdown-toggle premium-user"
-                       href="#"
-                       id="userDropdown"
-                       role="button"
-                       data-bs-toggle="dropdown">
-
+                       href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
                         @if(auth()->user()->avatar)
-                            <img src="{{ asset('storage/'.auth()->user()->avatar) }}"
-                                 class="avatar-img">
+                            <img src="{{ asset('storage/'.auth()->user()->avatar) }}" class="avatar-img">
                         @else
                             <div class="avatar-fallback">
                                 {{ strtoupper(substr(auth()->user()->name,0,1)) }}
                             </div>
                         @endif
-
-                        <span class="fw-semibold d-none d-md-inline">
-                            {{ auth()->user()->name }}
-                        </span>
+                        <span class="fw-semibold d-none d-md-inline">{{ auth()->user()->name }}</span>
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-glass">
                         <li class="px-3 py-2 small text-muted">
                             Masuk sebagai
-                            <div class="fw-semibold text-dark">
-                                {{ auth()->user()->email ?? auth()->user()->name }}
-                            </div>
+                            <div class="fw-semibold text-dark">{{ auth()->user()->email ?? auth()->user()->name }}</div>
                         </li>
                         <li><hr class="dropdown-divider"></li>
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button class="dropdown-item text-danger fw-semibold">
-                                    <i class="fa-solid fa-right-from-bracket me-2"></i>
-                                    Logout
+                                    <i class="fa-solid fa-right-from-bracket me-2"></i> Logout
                                 </button>
                             </form>
                         </li>
@@ -86,9 +85,10 @@
 
             </ul>
         </div>
+
+        
     </div>
 </nav>
-
 
 {{-- CSS tambahan --}}
 <style>
@@ -102,15 +102,16 @@
 }
 
 /* BRAND */
+/* BRAND */
 .brand-gradient {
-    background: linear-gradient(90deg, #2563eb, #38bdf8);
+    background: linear-gradient(90deg, #ED1C24, #b31217);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 1.3rem;
 }
 
 .brand-sub {
-    color: #1f2937;
+    color: #7a1c1f;
     font-weight: 600;
     margin-left: 4px;
 }
@@ -119,7 +120,7 @@
 .premium-link {
     position: relative;
     font-weight: 500;
-    color: #374151;
+    color: #5a1a1d;
     padding-bottom: 6px;
 }
 
@@ -130,7 +131,7 @@
     bottom: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #2563eb, #38bdf8);
+    background: linear-gradient(90deg, #ED1C24, #b31217);
     transition: width .3s ease;
 }
 
@@ -140,15 +141,8 @@
 }
 
 .premium-link.active {
-    color: #2563eb;
+    color: #ED1C24;
     font-weight: 600;
-}
-
-/* DIVIDER */
-.nav-divider {
-    width: 1px;
-    height: 28px;
-    background: rgba(0,0,0,0.1);
 }
 
 /* AVATAR */
@@ -157,20 +151,21 @@
     height: 38px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #2563eb;
+    border: 2px solid #ED1C24;
 }
 
 .avatar-fallback {
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #2563eb, #38bdf8);
-    color: #fff;
+    background: linear-gradient(135deg, #ED1C24, #b31217);
+    color: #FFF1C1;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
 }
+
 
 /* DROPDOWN */
 .dropdown-glass {
@@ -180,9 +175,22 @@
     box-shadow: 0 20px 50px rgba(0,0,0,0.15);
 }
 
+/* LOGO */
+.navbar-logo {
+    height: 40px; /* Sesuaikan dengan ukuran logo */
+    width: auto;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
 /* FIX CONTENT OFFSET (karena fixed-top) */
 body {
     padding-top: 80px;
 }
-</style>
 
+.text-primary,
+.text-info{
+    color : #FFF1C1 !important;
+}
+
+</style>

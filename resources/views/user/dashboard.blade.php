@@ -7,8 +7,8 @@
 <style>
 /* GLOBAL */
 .home-wrapper {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #fff;
+    background: linear-gradient(135deg, #ED1C24 0%, #b31217 45%, #6a0f12 100%);
+    color: #FFF1C1;
 }
 
 /* HERO */
@@ -24,61 +24,90 @@
     position: absolute;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(0,198,255,.35), transparent 70%);
+    background: radial-gradient(
+        circle,
+        rgba(255,241,193,.45),
+        transparent 70%
+    );
     top: -150px;
     right: -150px;
-    filter: blur(80px);
+    filter: blur(90px);
+}
+
+.hero-title {
+    color: #FFF1C1;
 }
 
 .hero-title span {
-    background: linear-gradient(90deg, #4d9aff, #e9ff85);
+    background: linear-gradient(90deg, #FFF1C1, #FDF0C8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 /* BUTTON */
 .btn-premium {
-    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    background: linear-gradient(90deg, #ED1C24, #b31217);
     border: none;
-    color: #fff;
+    color: #FFF1C1;
     border-radius: 50px;
     padding: 12px 28px;
     font-weight: 600;
+    transition: .3s;
+}
+
+.btn-premium:hover {
+    background: linear-gradient(90deg, #ff2a32, #ED1C24);
+    color: #FFF1C1;
+    box-shadow: 0 10px 30px rgba(237,28,36,.45);
 }
 
 .btn-premium-outline {
-    border: 2px solid rgba(255,255,255,.4);
-    color: #fff;
+    border: 2px solid rgba(255,241,193,.6);
+    color: #FFF1C1;
     border-radius: 50px;
     padding: 12px 28px;
     font-weight: 600;
+    transition: .3s;
 }
 
 .btn-premium-outline:hover {
-    background: rgba(255,255,255,.1);
+    background: rgba(255,241,193,.15);
+    color: #FFF1C1;
 }
 
 /* GLASS CARD */
 .glass-card {
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,241,193,.08);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    box-shadow: 0 20px 50px rgba(0,0,0,.45);
     transition: all .3s ease;
 }
 
 .glass-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 30px 70px rgba(0,0,0,0.55);
+    box-shadow: 0 30px 70px rgba(0,0,0,.6);
+}
+
+/* ICON */
+.glass-card i {
+    color: #FFF1C1 !important;
 }
 
 /* SECTION TITLE */
 .section-title {
     font-weight: 700;
     letter-spacing: .5px;
+    color: #FFF1C1;
+}
+
+/* TEXT SOFT */
+.text-white-50 {
+    color: rgba(255,241,193,.7) !important;
 }
 </style>
+
 
 <div class="home-wrapper">
 

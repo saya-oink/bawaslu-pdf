@@ -1,6 +1,6 @@
 <aside id="sidebar" class="sidebar vh-100 position-fixed">
-    <div id="sidebarToggle" class="sidebar-header d-flex align-items-center gap-2">
-        <i class="fa-solid fa-shield-halved sidebar-logo"></i>
+    <div id="sidebarToggle" class="sidebar-header d-flex align-items-center gap-3">
+        <img src="{{ asset('images/logo-bawaslu-putih.png') }}" alt="Bawaslu Logo" class="sidebar-logo-img">
         <span class="sidebar-text">Admin Panel</span>
     </div>
 
@@ -48,71 +48,146 @@
         </li>
     </ul>
 </aside>
+
 <style>
-    .sidebar {
-    width: 260px;
-    background: linear-gradient(
-        180deg,
-        #0f2027,
-        #203a43,
-        #2c5364
-    );
-    color: #e5e7eb;
-    box-shadow: 6px 0 30px rgba(0,0,0,.5);
-    transition: all .3s ease;
-    z-index: 1000;
+:root {
+    /* Warna merah elegan & bold */
+    --primary-red: #C1272D;    /* Merah classic premium */
+    --secondary-red: #8B1A20;  /* Merah gelap elegan */
+    --text-gold: #FFF1C1;
+    --neon-red: #ED1C24;        /* Untuk efek hover/glow */
 }
 
+/* Sidebar base */
+.sidebar {
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, var(--primary-red), var(--secondary-red));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.5), 6px 0 40px rgba(0,0,0,0.5);
+    border-right: 1px solid rgba(255,255,255,0.08);
+    color: var(--text-gold);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Sidebar header */
 .sidebar-header {
-    padding: 1.4rem 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,.08);
-    font-weight: 600;
+    padding: 1.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     cursor: pointer;
 }
 
-.sidebar-logo {
-    color: #38bdf8;
-    font-size: 1.4rem;
+.sidebar-logo-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    filter: drop-shadow(0 0 5px var(--neon-red));
+}
+.sidebar-logo-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--neon-red);
 }
 
-/* MENU */
+.sidebar-text {
+    color: var(--text-gold);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+/* Menu */
 .sidebar-menu {
     padding: 1rem;
-    height: calc(100% - 76px);
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
+    flex: 1;
 }
 
 .sidebar .nav-link {
-    color: rgba(255,255,255,.75);
-    border-radius: 14px;
-    padding: 12px 16px;
+    color: var(--text-gold);
+    border-radius: 16px;
+    padding: 14px 18px;
     display: flex;
     align-items: center;
-    gap: 14px;
-    transition: all .25s ease;
+    gap: 16px;
+    font-weight: 400;
+    font-size: 0.80rem;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
+/* Icon */
+.sidebar .nav-link i {
+    color: var(--text-gold);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
 .sidebar .nav-link:hover {
-    background: rgba(255,255,255,.08);
-    color: #fff;
+    background: rgba(255,255,255,0.08);
+    color: var(--text-gold);
     transform: translateX(4px);
+    box-shadow: 0 0 12px var(--neon-red);
+}
+.sidebar .nav-link:hover i {
+    color: var(--neon-red);
+    transform: scale(1.15);
 }
 
+/* Active menu */
 .sidebar .nav-link.active {
-    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-    color: #fff;
-    box-shadow: 0 10px 28px rgba(56,189,248,.45);
+    background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+    color: var(--text-gold);
+    box-shadow: inset 0 0 15px rgba(255,255,255,0.2), 0 0 25px var(--neon-red);
+    animation: glow 2s ease-in-out infinite alternate;
 }
 
-/* LOGOUT */
+.sidebar .nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(180deg, var(--text-gold), var(--neon-red));
+    border-radius: 2px;
+}
+
+/* Glow animation for active menu */
+@keyframes glow {
+    0% { box-shadow: inset 0 0 15px rgba(255,255,255,0.2), 0 0 20px var(--neon-red);}
+    50% { box-shadow: inset 0 0 20px rgba(255,255,255,0.3), 0 0 28px var(--neon-red);}
+    100% { box-shadow: inset 0 0 15px rgba(255,255,255,0.2), 0 0 20px var(--neon-red);}
+}
+
+/* Logout button */
 .btn-logout {
-    background: rgba(255,255,255,.08);
-    color: #93c5fd;
-    border-radius: 14px;
-    padding: 12px;
+    background: rgba(255,255,255,0.05);
+    color: var(--text-gold);
+    border-radius: 16px;
+    padding: 14px;
     border: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
 }
-
+.btn-logout:hover {
+    background: rgba(255,255,255,0.12);
+    color: var(--text-gold);
+    box-shadow: 0 0 12px var(--neon-red);
+}
 </style>

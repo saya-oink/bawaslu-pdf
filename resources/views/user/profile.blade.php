@@ -8,26 +8,26 @@
 /* PAGE WRAPPER */
 .profil-wrapper {
     min-height: calc(100vh - 120px);
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background: linear-gradient(135deg, #ED1C24, #b31217, #6a0f12);
     padding-top: 80px;
     padding-bottom: 80px;
-    color: #fff;
+    color: #FFF1C1;
 }
 
 /* GLASS CARD */
 .glass-card {
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,241,193,.10);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-radius: 22px;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+    box-shadow: 0 25px 60px rgba(0,0,0,.35);
     padding: 2rem;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform .3s, box-shadow .3s;
 }
 
 .glass-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 35px 80px rgba(0,0,0,0.35);
+    box-shadow: 0 35px 80px rgba(0,0,0,.45);
 }
 
 /* SECTION HEADER */
@@ -38,7 +38,7 @@
 
 .section-header i {
     font-size: 3rem;
-    color: #38bdf8;
+    color: #FFF1C1;
     margin-bottom: 1rem;
 }
 
@@ -46,50 +46,52 @@
 .icon-box {
     text-align: center;
     padding: 2rem 1rem;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255,241,193,.08);
     border-radius: 16px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform .3s, box-shadow .3s;
 }
 
 .icon-box:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    box-shadow: 0 15px 35px rgba(0,0,0,.35);
 }
 
 .icon-box i {
     font-size: 2rem;
-    color: #38bdf8;
-    margin-bottom: 0.5rem;
+    color: #FFF1C1;
+    margin-bottom: .5rem;
 }
 
 /* VISI & MISI CARDS */
 .card-glass {
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,241,193,.10);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    box-shadow: 0 20px 50px rgba(0,0,0,.35);
     padding: 1.5rem;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform .3s, box-shadow .3s;
 }
 
 .card-glass:hover {
     transform: translateY(-3px);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+    box-shadow: 0 25px 60px rgba(0,0,0,.45);
 }
 
 .card-glass h5 i {
-    color: #38bdf8;
+    color: #FFF1C1;
 }
 
+/* TEXT */
 .text-muted {
-    color: rgba(255,255,255,0.75) !important;
+    color: rgba(255,241,193,.75) !important;
 }
 
 hr {
-    border-color: rgba(255,255,255,0.2);
+    border-color: rgba(255,241,193,.25);
 }
 </style>
+
 
 <div class="profil-wrapper">
 

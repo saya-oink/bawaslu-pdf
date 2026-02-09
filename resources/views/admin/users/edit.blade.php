@@ -8,26 +8,31 @@
     {{-- SIDEBAR --}}
     @include('admin.partials.sidebar')
 
-    <div class="flex-grow-1" style="margin-left:260px;">
+    <div class="flex-grow-1 main-content" style="margin-left:260px;">
 
         {{-- HEADER --}}
         @include('admin.partials.header')
 
-        <div class="p-4">
+        <div class="p-4 page-bg">
 
             {{-- PAGE TITLE --}}
             <div class="mb-4">
-                <h4 class="fw-bold mb-1">Edit User</h4>
-                <p class="text-muted mb-0">Perbarui data pengguna</p>
+                <h4 class="fw-bold page-title mb-1">
+                    <i class="fa-solid fa-user-pen me-1"></i>
+                    Edit User
+                </h4>
+                <p class="page-subtitle mb-0">
+                    Perbarui data pengguna
+                </p>
             </div>
 
             {{-- EDIT USER CARD --}}
-            <div class="card user-card border-0 shadow-sm rounded-4 mx-auto" style="max-width: 600px;">
-                <div class="card-body p-3 p-md-4">
+            <div class="card user-card mx-auto">
+                <div class="card-body p-4 p-md-5">
 
                     {{-- VALIDATION ERROR --}}
                     @if ($errors->any())
-                        <div class="alert alert-danger">
+                        <div class="alert alert-danger-custom">
                             <ul class="mb-0">
                                 @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
@@ -46,10 +51,9 @@
                         <div class="mb-4 text-center">
                             @if($user->avatar)
                                 <img src="{{ asset('storage/'.$user->avatar) }}"
-                                     class="rounded-circle shadow-sm mb-2 avatar-img">
+                                     class="rounded-circle shadow avatar-img mb-2">
                             @else
-                                <div class="rounded-circle bg-danger text-white d-flex
-                                            align-items-center justify-content-center mx-auto mb-2 shadow-sm avatar-img">
+                                <div class="avatar-img avatar-placeholder mx-auto mb-2">
                                     {{ strtoupper(substr($user->name,0,1)) }}
                                 </div>
                             @endif
@@ -58,12 +62,14 @@
                                    name="avatar"
                                    class="form-control mt-2"
                                    accept="image/png,image/jpeg">
-                            <small class="text-muted">JPG / PNG • Maks 2MB</small>
+                            <small class="form-text text-muted">
+                                JPG / PNG • Maks 2MB
+                            </small>
                         </div>
 
                         {{-- NAMA --}}
                         <div class="mb-3">
-                            <label class="form-label fw-semibold">Nama</label>
+                            <label class="form-label">Nama</label>
                             <input type="text"
                                    name="name"
                                    class="form-control"
@@ -73,7 +79,7 @@
 
                         {{-- EMAIL --}}
                         <div class="mb-3">
-                            <label class="form-label fw-semibold">Email</label>
+                            <label class="form-label">Email</label>
                             <input type="email"
                                    name="email"
                                    class="form-control"
@@ -83,7 +89,7 @@
 
                         {{-- ROLE --}}
                         <div class="mb-3">
-                            <label class="form-label fw-semibold">Role</label>
+                            <label class="form-label">Role</label>
                             <select name="role" class="form-select" required>
                                 <option value="user"  {{ $user->role=='user'?'selected':'' }}>User</option>
                                 <option value="admin" {{ $user->role=='admin'?'selected':'' }}>Admin</option>
@@ -92,8 +98,9 @@
 
                         {{-- PASSWORD --}}
                         <div class="mb-4">
-                            <label class="form-label fw-semibold">
-                                Password <span class="text-muted">(kosongkan jika tidak diubah)</span>
+                            <label class="form-label">
+                                Password
+                                <span class="text-muted">(kosongkan jika tidak diubah)</span>
                             </label>
                             <input type="password"
                                    name="password"
@@ -103,11 +110,11 @@
                         {{-- ACTION --}}
                         <div class="d-flex justify-content-between">
                             <a href="{{ route('admin.users.index') }}"
-                               class="btn btn-light">
+                               class="btn btn-back">
                                 Kembali
                             </a>
 
-                            <button class="btn btn-danger px-4">
+                            <button type="submit" class="btn btn-save px-4">
                                 Simpan Perubahan
                             </button>
                         </div>
@@ -121,77 +128,135 @@
     </div>
 </div>
 
+{{-- ================= STYLES ================= --}}
 @push('styles')
 <style>
-/* ===========================
-   EDIT USER CARD
-=========================== */
+/* PAGE BACKGROUND */
+.page-bg {
+    min-height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        #FFF6D8,
+        #FFF1C1
+    );
+    padding-bottom: 60px;
+}
+
+/* TITLE */
+.page-title {
+    color: #7A1C1F;
+}
+.page-title i {
+    color: #ED1C24;
+}
+.page-subtitle {
+    color: rgba(122,28,31,.7);
+}
+
+/* USER CARD */
 .user-card {
-    background: linear-gradient(180deg, #0f2027, #203a43);
-    color: #ffffff;
-    border-radius: 1rem;
+    max-width: 600px;
     border: none;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    transition: all 0.35s ease;
+    border-radius: 22px;
+    background: #FFFDF4;
+    box-shadow: 0 20px 45px rgba(0,0,0,.2);
+    transition: .3s ease;
 }
 
 .user-card:hover {
-    transform: translateY(-3px) scale(1.01);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 30px 70px rgba(0,0,0,.25);
 }
 
+/* LABEL */
+.user-card label {
+    font-weight: 600;
+    color: #7A1C1F;
+}
+
+/* INPUT */
 .user-card input,
 .user-card select {
-    background-color: rgba(255,255,255,0.1);
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.3);
-    transition: all 0.3s ease;
+    border-radius: 10px;
+    border: 1px solid rgba(122,28,31,.25);
+    background: #FFFDF4;
 }
 
 .user-card input:focus,
 .user-card select:focus {
-    border-color: #38bdf8;
-    box-shadow: 0 0 0 0.2rem rgba(56,189,248,0.25);
-    background-color: rgba(255,255,255,0.15);
-    color: #fff;
+    border-color: #ED1C24;
+    box-shadow: 0 0 0 .2rem rgba(237,28,36,.25);
 }
 
-.user-card label {
-    color: #cfd8dc;
-}
-
-.user-card .form-control::placeholder {
-    color: rgba(255,255,255,0.6);
-}
-
+/* AVATAR */
 .avatar-img {
     width: 100px;
     height: 100px;
     object-fit: cover;
-    transition: transform 0.3s;
+    transition: .3s;
 }
 
 .avatar-img:hover {
     transform: scale(1.05);
 }
 
-/* ALERTS */
-.user-card .alert {
-    background-color: rgba(255,255,255,0.15);
-    color: #fff;
+.avatar-placeholder {
+    background: linear-gradient(135deg, #ED1C24, #7A1C1F);
+    color: #FFF1C1;
+    font-size: 36px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* ALERT */
+.alert-danger-custom {
+    background: rgba(237,28,36,.12);
+    color: #7A1C1F;
+    border-radius: 14px;
     border: none;
 }
 
 /* BUTTONS */
-.user-card .btn-danger {
-    background-color: #38bdf8;
-    border-color: #38bdf8;
+.btn-save {
+    background: linear-gradient(
+        90deg,
+        #ED1C24,
+        #7A1C1F
+    );
+    border: none;
+    border-radius: 50px;
+    color: #FFF1C1;
+    font-weight: 700;
+    padding: 10px 28px;
+    transition: .3s ease;
 }
 
-.user-card .btn-danger:hover {
-    background-color: #1e40af;
-    border-color: #1e40af;
+.btn-save:hover {
     transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(237,28,36,.45);
+}
+
+.btn-back {
+    background: #FFF1C1;
+    border-radius: 50px;
+    color: #7A1C1F;
+    font-weight: 600;
+    padding: 10px 26px;
+    border: 1px solid rgba(122,28,31,.25);
+}
+
+.btn-back:hover {
+    background: #FFE8A3;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0 !important;
+    }
 }
 </style>
 @endpush

@@ -7,7 +7,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        background: linear-gradient(135deg, #ED1C24, #b31217, #6a0f12);
         position: relative;
         overflow: hidden;
     }
@@ -16,7 +16,7 @@
         position: absolute;
         width: 420px;
         height: 420px;
-        background: radial-gradient(circle, rgba(0,198,255,0.35), transparent 70%);
+        background: radial-gradient(circle, rgba(255,241,193,0.35), transparent 70%);
         top: -120px;
         right: -120px;
         filter: blur(70px);
@@ -33,12 +33,12 @@
         text-align: center;
         box-shadow: 0 25px 60px rgba(0,0,0,0.45);
         animation: fadeUp 1s ease forwards;
-        color: #fff;
+        color: #FFF1C1;
     }
 
     .comingsoon-badge {
         display: inline-block;
-        background: linear-gradient(90deg, #00c6ff, #0072ff);
+        background: linear-gradient(90deg, #ED1C24, #b31217);
         padding: 8px 18px;
         border-radius: 50px;
         font-size: 12px;
@@ -50,6 +50,7 @@
         font-weight: 700;
         margin-top: 1.5rem;
         letter-spacing: 1px;
+        color: #FFF1C1;
     }
 
     .comingsoon-text {
@@ -58,9 +59,9 @@
     }
 
     .comingsoon-btn {
-        background: linear-gradient(90deg, #00c6ff, #0072ff);
+        background: linear-gradient(90deg, #ED1C24, #b31217);
         border: none;
-        color: #fff;
+        color: #FFF1C1;
         padding: 12px 30px;
         border-radius: 50px;
         font-weight: 600;
@@ -70,8 +71,8 @@
 
     .comingsoon-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 12px 30px rgba(0,114,255,0.5);
-        color: #fff;
+        box-shadow: 0 12px 30px rgba(237,28,36,0.5);
+        color: #FFF1C1;
     }
 
     @keyframes fadeUp {
@@ -85,6 +86,7 @@
         }
     }
 </style>
+
 
 <div class="comingsoon-wrapper">
     <div class="comingsoon-glow"></div>

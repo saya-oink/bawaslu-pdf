@@ -50,55 +50,71 @@
 
     {{-- CSS Footer Premium --}}
     <style>
-    .footer-glass {
-        background: rgba(0,0,0,0.6); /* glass effect */
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border-radius: 20px 20px 0 0;
-        box-shadow: 0 -5px 25px rgba(0,0,0,0.3);
-        color: #fff;
-    }
+.footer-glass {
+    background: #FFF1C1; /* CREAM */
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -5px 25px rgba(0,0,0,0.12);
+    color: #7a1c1f;
+}
 
-    .footer-glass a {
-        color: #ffffffcc;
-        text-decoration: none;
-        transition: color 0.3s, transform 0.3s;
-    }
+/* LINK */
+.footer-glass a {
+    color: #7a1c1f;
+    text-decoration: none;
+    transition: color .3s, transform .3s;
+}
 
-    .footer-glass a:hover {
-        color: #38bdf8; /* biru premium */
-        transform: translateY(-2px);
-    }
+.footer-glass a:hover {
+    color: #ED1C24;
+    transform: translateY(-2px);
+}
 
-    .footer-glass i {
-        color: #ffffffcc;
-        transition: color 0.3s, transform 0.3s;
-    }
+/* ICON SOSMED */
+.footer-glass i {
+    color: #7a1c1f;
+    transition: color .3s, transform .3s;
+}
 
-    .footer-glass i:hover {
-        color: #38bdf8;
-        transform: translateY(-3px);
-    }
+.footer-glass i:hover {
+    color: #ED1C24;
+    transform: translateY(-3px);
+}
 
-    .footer-glass hr {
-        border-color: rgba(255,255,255,0.15);
-    }
+/* HR */
+.footer-glass hr {
+    border-color: rgba(122,28,31,.25);
+}
 
-    .footer-glass h5, .footer-glass h6 {
-        color: #fff;
-    }
+/* TITLE */
+.footer-glass h5,
+.footer-glass h6 {
+    color: #7a1c1f;
+}
 
-    .footer-glass p, .footer-glass ul li {
-        color: rgba(255,255,255,0.75);
-    }
+/* TEXT */
+.footer-glass p,
+.footer-glass ul li,
+.footer-glass .text-muted {
+    color: rgba(122,28,31,.8) !important;
+}
 
-    @media (max-width: 768px) {
-        .footer-glass .row {
-            text-align: center;
-        }
-        .footer-glass .d-flex {
-            justify-content: center;
-        }
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .footer-glass .row {
+        text-align: center;
     }
-    </style>
+    .footer-glass .d-flex {
+        justify-content: center;
+    }
+}
+
+.footer-glass {
+    border-top: 4px solid #ED1C24;
+}
+
+.footer-glass {
+    background: rgba(255,241,193,0.95);
+}
+</style>
+
 </footer>

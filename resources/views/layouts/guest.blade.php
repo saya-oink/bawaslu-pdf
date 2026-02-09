@@ -17,12 +17,16 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <!-- Custom CSS -->
     <style>
         body {
-            background: linear-gradient(135deg, #0284c7, #0ea5e9);
             font-family: 'Figtree', sans-serif;
-            color: #1f2937;
+            margin: 0;
+            height: 100%;
+            background:
+                linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+                linear-gradient(135deg, #ED1C24, #7A1C1F);
+            background-size: cover;
+            color: #FFF1C1;
         }
 
         .login-container {
@@ -37,16 +41,18 @@
         .login-card {
             width: 100%;
             max-width: 400px;
-            background: #ffffff;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
             border-radius: 1rem;
             padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .login-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.35);
         }
 
         .login-header {
@@ -54,43 +60,66 @@
             margin-bottom: 1.5rem;
         }
 
-        .login-header i {
-            font-size: 3rem;
-            color: #dc2626; /* merah premium Bawaslu */
+        .login-header img {
+            height: 70px;
             margin-bottom: 0.5rem;
+            filter: drop-shadow(0 0 10px rgba(237,28,36,0.8));
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .login-header img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(237,28,36,0.8);
         }
 
         .login-header h2 {
             font-weight: 700;
             margin-bottom: 0.25rem;
+            text-transform: uppercase;
         }
 
         .login-header p {
-            color: #6b7280; /* abu-abu lembut */
+            color: rgba(255,255,255,0.75);
         }
 
         .btn-primary {
-            background-color: #dc2626;
+            background-color: #ED1C24;
             border: none;
             width: 100%;
             padding: 0.75rem;
             font-weight: 600;
             border-radius: 0.75rem;
-            transition: background 0.3s, transform 0.2s;
+            transition: all 0.3s ease;
+            color: #FFF1C1;
         }
 
         .btn-primary:hover {
-            background-color: #b91c1c;
+            background-color: #B71C1C;
             transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
         .forgot-link {
-            color: #6b7280;
+            color: rgba(255,255,255,0.6);
             font-size: 0.875rem;
         }
 
         .forgot-link:hover {
-            color: #dc2626;
+            color: #ED1C24;
+        }
+
+        .login-input {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.35);
+            color: #FFF1C1;
+            border-radius: 10px;
+        }
+
+        .login-input:focus {
+            background: rgba(255,255,255,0.25);
+            border-color: #fff;
+            color: #FFF1C1;
+            box-shadow: none;
         }
     </style>
 </head>
@@ -99,7 +128,7 @@
 
         {{-- HEADER --}}
         <div class="login-header">
-            <i class="fa-solid fa-file-shield"></i>
+            <img src="{{ asset('images/logo-bawaslu.png') }}" alt="BAWASLU Logo">
             <h2>Bawaslu PDF Locker</h2>
             <p>Silakan login untuk mengakses sistem</p>
         </div>

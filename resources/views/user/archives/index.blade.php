@@ -8,9 +8,9 @@
 /* ================= PAGE ================= */
 .archive-wrapper {
     min-height: 100vh;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background: linear-gradient(135deg, #ED1C24, #b31217, #6a0f12);
     padding: 60px 0;
-    color: #fff;
+    color: #FFF1C1;
 }
 
 /* ================= GLASS CARD ================= */
@@ -34,13 +34,13 @@
 /* ================= ICON & BADGE ================= */
 .archive-icon {
     font-size: 2.2rem;
-    color: #38bdf8;
+    color: #FFF1C1;
     opacity: .9;
 }
 
 .badge-pdf {
-    background: rgba(56,189,248,.15);
-    color: #38bdf8;
+    background: #FFF1C1;
+    color: #ED1C24;
     font-weight: 600;
 }
 
@@ -74,7 +74,7 @@
     border-radius: 50%;
     border: 1px solid rgba(255,255,255,.3);
     background: transparent;
-    color: #fff;
+    color: #FFF1C1;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -82,9 +82,9 @@
 }
 
 .btn-icon:hover {
-    background: #38bdf8;
-    border-color: #38bdf8;
-    color: #fff;
+    background: #ED1C24;
+    border-color: #ED1C24;
+    color: #FFF1C1;
 }
 
 .btn-icon-danger:hover {
@@ -96,15 +96,22 @@
 .pagination .page-link {
     background: transparent;
     border: 1px solid rgba(255,255,255,.25);
-    color: #fff;
+    color: #FFF1C1;
 }
 
 .pagination .page-link:hover {
-    background: #38bdf8;
-    border-color: #38bdf8;
-    color: #fff;
+    background: #ED1C24;
+    border-color: #ED1C24;
+    color: #FFF1C1;
+}
+
+
+.fa-regular.fa-clock {
+    color: #FFF1C1;
+    opacity: .8;
 }
 </style>
+
 
 <div class="archive-wrapper">
     <div class="container">
